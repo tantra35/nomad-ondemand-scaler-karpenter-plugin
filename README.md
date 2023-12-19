@@ -9,3 +9,5 @@ service KarpenterService {
 	rpc RemoveInstances (DeleteInstancesRequest) returns (DeleteInstancesResponse);
 }
 ```
+
+Use karpenter `v0.29.2`
