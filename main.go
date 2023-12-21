@@ -3,10 +3,18 @@ package main
 import (
 	"os"
 
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
 )
 
 func main() {
+	appLogger := hclog.New(&hclog.LoggerOptions{
+		Name:        "karpenterprovidergrpc-0.29.2",
+		DisableTime: true,
+		Level:       hclog.Info,
+	})
+	hclog.SetDefault(appLogger)
+
 	lclustername := os.Args[1]
 
 	plugin.Serve(&plugin.ServeConfig{
